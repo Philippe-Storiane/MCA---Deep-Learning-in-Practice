@@ -1,0 +1,243 @@
+	TP1
+Activation Sigmoid mauvais résult autour de 50%
+Tanh mauvais résultat mais intermédiaire avec relu mais pas très stable (65-70%)
+
+Profondeur et nombre de neurones important
+
+
+Batch size plus rapide si on augmente mais dégradation
+
+LR=0.5 on apprend plus vite et meilleur qualité
+lr=0.001 trop long
+lr = 0.1, 0.2 on apprend plus vite avec moins d'epoche mais beaucouo plus instable
+Entre 0.02 et 0.1 relativement instable
+lr = >= 1 pas de convergence  et très instable
+
+lr = 0.05 ou 0.1 a l'air plus intéressant converge en 65 epochs mais avec un peu d'instabilité et des résultats de qualité un peu dégradé (96%) au lieu de 100%
+
+
+RMSprop et Adam mauvaise Optimisation
+
+MSELoss
+4 Layer 256
+lr = 0.05 ou 0.1
+batch_size = 10
+
+
+BCELoss moins de neurone pour apprendre, plus instable avec même lr, adam impact
+
+3 layers avec plusieurs combinaisons de poids presque 100% mais pas complètement
+128 -> 64 -> 32
+64 -> 64 -> 64
+
+MSELoss
+4 layers 30 100%
+Dernier niveau sans sigmoid
+80 epochs 10 batch_size
+
+
+BCEWithLogit
+100 epochs
+moins stables lr =0.005
+
+avec RMSprop convergence plus rapide après 20 epochs (mais 80 pour les résultats) et plus stable, légère dégradation des résultats
+
+
+
+Idem Adam avec dégradation un peu plus importante
+On prend 50 epochs. Ca a l'air plus stable sur le graphique mais les résultats sont vraiment moins bons
+
+50 epochs lr=0.005
+RMSprop plus stable qu'Adam
+Adam plus lent
+
+
+TP2
+MSELoss
+Epoch = 50
+batch = 20
+
+SGD lr =0.1
+
+CV1 1,6, 5x5
+CV2 6, 16, 5x5
+L1 16 * 8 * 8, 120
+L2 120, 84
+L3 120, 10
+
+
+Accuracy Validation
+96,28
+96,98
+96,59
+96,75
+
+Accuracy Test
+92,28
+92,83
+93,62
+
+
+On retire CV2, L2, L3
+Accuracy Validation
+95,75
+95,04
+
+Accuracy Test
+90,98
+90,68
+
+
+On retire CV2
+Accuracy Validation
+95,43
+95,74
+96,13
+96,51
+
+Accuracy Test
+91,98
+92,92
+92,38
+92,48
+
+
+On retire CV2, L3
+Accuracy Validation
+95,82
+96,26
+95,97
+96,20
+
+
+Accuracy Test
+92,63
+92,43
+92,38
+92,58
+
+
+On retire CV2, L2, L3
+Accuracy Validation
+95,58
+95,35
+
+
+
+Accuracy Test
+91,33
+91,28
+
+On retire L3
+Accuracy Validation
+96,51
+96,98
+96,36
+97,37
+
+
+
+Accuracy Test
+93,22
+93,52
+93,17
+93,47
+
+
+LR = 0.001
+Epoch = 20
+Batch_size = 20
+CrossEntropyLoss CV1, CV2, L1, L2
+Accuracy Validation
+97,37
+97,29
+97,75
+97,68
+
+
+Accuracy Test
+94,62
+94,52
+94,97
+94,97
+
+CrossEntropyLoss CV1, CV2, L1, L2, L3
+Accuracy Validation
+97,83
+96,75
+97,37
+97,60
+96,67
+
+Accuracy Test
+95,97
+93,75
+94,57
+94,87
+93,32
+
+lr = 0.001
+neuron = 40
+CrossEntropyLoss CV1, CV2, L1, L2
+Accuracy Validation
+97.91
+97,37
+97,83
+
+
+Accuracy Test
+94.92
+94,72
+95,37
+
+
+lr = 0.001
+neuron = 20
+CrossEntropyLoss CV1, CV2, L1, L2
+Accuracy Validation
+97.75
+98,14
+97,68
+98,06
+
+Accuracy Test
+94,37
+95.32
+94,37
+95,22
+
+
+lr = 0.001
+neuron = 10
+CrossEntropyLoss CV1, CV2, L1
+Accuracy Validation
+97,37
+97,6
+97,6
+98,22
+
+Accuracy Test
+93,97
+95,27
+94,07
+95,02
+
+
+lr = 0.001
+neuron = 120
+CrossEntropyLoss CV1, CV2, L1, L2
+Accuracy Validation
+98,14
+98,22
+98,14
+96,44
+98,06
+98,3
+
+Accuracy Test
+95,12
+95,52
+94,92
+92,28
+95,07
+95,22
